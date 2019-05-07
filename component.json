@@ -1,0 +1,152 @@
+{
+    "title": "AuthorizationManagementClient",
+    "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to get deny assignments. A deny assignment describes the set of actions on resources that are denied for Azure Active Directory users.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/authorization-authorization-DenyAssignmentGetCalls/2018-07-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "DenyAssignments_List": {
+            "main": "./lib/actions/DenyAssignments_List.js",
+            "title": "Gets all deny assignments for the subscription.",
+            "description": "Gets all deny assignments for the subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DenyAssignments_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DenyAssignments_ListForResourceGroup": {
+            "main": "./lib/actions/DenyAssignments_ListForResourceGroup.js",
+            "title": "Gets deny assignments for a resource group.",
+            "description": "Gets deny assignments for a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DenyAssignments_ListForResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DenyAssignments_ListForResource": {
+            "main": "./lib/actions/DenyAssignments_ListForResource.js",
+            "title": "Gets deny assignments for a resource.",
+            "description": "Gets deny assignments for a resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DenyAssignments_ListForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DenyAssignments_GetById": {
+            "main": "./lib/actions/DenyAssignments_GetById.js",
+            "title": "Gets a deny assignment by ID.",
+            "description": "Gets a deny assignment by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DenyAssignments_GetById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DenyAssignments_ListForScope": {
+            "main": "./lib/actions/DenyAssignments_ListForScope.js",
+            "title": "Gets deny assignments for a scope.",
+            "description": "Gets deny assignments for a scope.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DenyAssignments_ListForScope.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DenyAssignments_Get": {
+            "main": "./lib/actions/DenyAssignments_Get.js",
+            "title": "Get the specified deny assignment.",
+            "description": "Get the specified deny assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DenyAssignments_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
