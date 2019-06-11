@@ -1,5 +1,5 @@
 {
-    "title": "AuthorizationManagementClient",
+    "title": "AuthorizationManagementClient (authorization-authorization-DenyAssignmentGetCalls)",
     "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to get deny assignments. A deny assignment describes the set of actions on resources that are denied for Azure Active Directory users.",
     "docsUrl": "",
     "url": "https://api.apis.guru/v2/specs/azure.com/authorization-authorization-DenyAssignmentGetCalls/2018-07-01-preview/swagger.json",
@@ -26,7 +26,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "azure_auth": {
+            "oauth2": {
                 "label": "Azure Active Directory OAuth2 Flow",
                 "viewClass": "OAuthFieldView"
             }
@@ -34,7 +34,11 @@
         "oauth2": {
             "client_id": "{{OAUTH_CLIENT_ID}}",
             "client_secret": "{{OAUTH_CLIENT_SECRET}}",
-            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "token_uri": "https://login.microsoftonline.com/common/oauth2/token",
+            "scopes": [
+                "user_impersonation"
+            ]
         }
     },
     "triggers": {
